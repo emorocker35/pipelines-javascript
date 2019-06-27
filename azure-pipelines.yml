@@ -9,32 +9,32 @@ trigger:
 jobs:
 - job: linux_js
   variables:
-  - template: ci/azure/variables-docker.yaml
+  - template: variables-docker.yaml
   condition: 'false'
   pool:
     vmImage: 'ubuntu-latest'
   steps:
-  - template: 'ci/azure/linux-js.yaml'
+  - template: 'linux-js.yaml'
 
 - job: linux_cpp_debug
   variables:
-  - template: ci/azure/variables-docker.yaml
+  - template: variables-docker.yaml
   condition: 'true'
   pool:
     vmImage: 'ubuntu-latest'
   steps:
-  - template: 'ci/azure/linux-cpp.yaml'
+  - template: 'linux-cpp.yaml'
     parameters:
       buildType: Debug
 
 - job: linux_cpp_release
   variables:
-  - template: ci/azure/variables-docker.yaml
+  - template: variables-docker.yaml
   condition: 'false'
   pool:
     vmImage: 'ubuntu-latest'
   steps:
-  - template: 'ci/azure/linux-cpp.yaml'
+  - template: 'linux-cpp.yaml'
     parameters:
       buildType: Release
 
@@ -43,7 +43,7 @@ jobs:
   pool:
     vmImage: 'vs2017-win2016'
   steps:
-  - template: 'ci/azure/windows-cpp.yaml'
+  - template: 'windows-cpp.yaml'
     parameters:
       buildType: Debug
 
@@ -52,7 +52,7 @@ jobs:
   pool:
     vmImage: 'vs2017-win2016'
   steps:
-  - template: 'ci/azure/windows-cpp.yaml'
+  - template: 'windows-cpp.yaml'
     parameters:
       buildType: Release
 
@@ -61,7 +61,7 @@ jobs:
   pool:
     vmImage: 'macOS-10.14'
   steps:
-  - template: 'ci/azure/macos-cpp.yaml'
+  - template: 'macos-cpp.yaml'
     parameters:
       buildType: Debug
 
@@ -70,6 +70,6 @@ jobs:
   pool:
     vmImage: 'macOS-10.14'
   steps:
-  - template: 'ci/azure/macos-cpp.yaml'
+  - template: 'macos-cpp.yaml'
     parameters:
       buildType: Release
