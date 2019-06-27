@@ -9,7 +9,7 @@ trigger:
 jobs:
 - job: linux_js
   variables:
-  - template: variables-docker.yaml
+  - template: 'variables-docker.yaml'
   condition: 'false'
   pool:
     vmImage: 'ubuntu-latest'
@@ -18,7 +18,7 @@ jobs:
 
 - job: linux_cpp_debug
   variables:
-  - template: variables-docker.yaml
+  - template: 'variables-docker.yaml'
   condition: 'true'
   pool:
     vmImage: 'ubuntu-latest'
@@ -29,7 +29,7 @@ jobs:
 
 - job: linux_cpp_release
   variables:
-  - template: variables-docker.yaml
+  - template: 'variables-docker.yaml'
   condition: 'false'
   pool:
     vmImage: 'ubuntu-latest'
